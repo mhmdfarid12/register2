@@ -1,0 +1,41 @@
+.homepage {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin: 50px;
+  }
+  
+  .header {
+    margin-bottom: 30px;
+  }
+  
+  .header-title {
+    font-size: 36px;
+    font-weight: bold;
+    margin: 0;
+  }
+  
+  .header-subtitle {
+    font-size: 18px;
+    color: #888;
+    margin: 0;
+  }
+  
+  .content-text {
+    font-size: 20px;
+    margin-bottom: 20px;
+  }
+  
+  .content-button {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .content-button:hover {
+    background-color: #0056b3;
+  }
+  
