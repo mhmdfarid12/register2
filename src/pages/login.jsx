@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import "../css/Login.css"; // Impor file CSS
+import Swal from "sweetalert2";
 
 const Login = () => {
   const [formData, setFormData] = useState({
@@ -31,14 +32,33 @@ const Login = () => {
       );
 
       if (existingAccount) {
-        alert("Login berhasil!");
+        Swal.fire({
+          position: "top-middle",
+          icon: "success",
+          title: "Login Berhasil!!",
+          showConfirmButton: false,
+          timer: 1500,
+        });
+        localStorage.setItem("username", formData.username);
         console.log(storedAccounts);
         navigate("/Home");
       } else {
-        alert("Username atau password salah!");
+        Swal.fire({
+          position: "top-middle",
+          icon: "error",
+          title: "Username atau password salah!",
+          showConfirmButton: false,
+          timer: 1500,
+        });
       }
     } else {
-      alert("Harap isi semua kolom!");
+      Swal.fire({
+        position: "top-middle",
+        icon: "error",
+        title: "Tolong isi semua kolom!!",
+        showConfirmButton: false,
+        timer: 1500,
+      });
     }
   };
 
@@ -51,62 +71,67 @@ const Login = () => {
   };
 
   return (
-    <div className="container">
-      <div className="row">
-        <div className="col-md-6 offset-md-3">
-          <h3 className="text-center">Login</h3>
-          <div className="card my-5">
-            <form
-              className="card-body cardbody-color p-lg-5"
-              onSubmit={handleSubmit}
-            >
-              <div className="text-center">
-                <img
-                  src="https://cdn.pixabay.com/photo/2016/03/31/19/56/avatar-1295397__340.png"
-                  className="img-fluid profile-image-pic img-thumbnail rounded-circle my-3"
-                  width="200px"
-                  alt="profile"
-                />
-              </div>
-
-              <div className="mb-3">
-                <input
-                  type="text"
-                  className="form-control"
-                  id="Username"
-                  name="username"
-                  value={formData.username}
-                  onChange={handleChange}
-                  aria-describedby="emailHelp"
-                  placeholder="User Name"
-                />
-              </div>
-              <div className="mb-3">
-                <input
-                  type="password"
-                  className="form-control"
-                  id="password"
-                  placeholder="Password"
-                  name="password"
-                  value={formData.password}
-                  onChange={handleChange}
-                />
-              </div>
-              <div className="text-center">
-                <button type="submit" className="btn btn-color px-5 mb-5 w-100">
-                  Login
-                </button>
-              </div>
-              <div
-                id="emailHelp"
-                className="form-text text-center mb-5 text-dark"
+    <div
+      style={{
+        backgroundImage:
+          "url(https://www.gotravelly.com/blog/wp-content/uploads/2019/10/Gunung-Fuji-Jepang-1024x640.jpg)" /* Ganti dengan path gambar Anda */,
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        backgroundRepeat: "no-repeat",
+        height: "100vh",
+      }}
+    >
+      <div className="container">
+        <div className="row">
+          <div className="col-md-6 offset-md-3">
+            <div className="my-5">
+              <form
+                className="card-body cardbody-color p-lg-5"
+                onSubmit={handleSubmit}
               >
-                Belum Punya Akun?
-                <Link to="/home" href="#" className="text-dark fw-bold">
-                  <span>Klik Di Sini Untuk Register</span>
-                </Link>
-              </div>
-            </form>
+                <div className="mb-3">
+                  <h3 className="text-center">LOGIN</h3>
+                  <input
+                    type="text"
+                    className="form-control"
+                    id="Username"
+                    name="username"
+                    value={formData.username}
+                    onChange={handleChange}
+                    aria-describedby="emailHelp"
+                    placeholder="User Name"
+                  />
+                </div>
+                <div className="mb-3">
+                  <input
+                    type="password"
+                    className="form-control"
+                    id="password"
+                    placeholder="Password"
+                    name="password"
+                    value={formData.password}
+                    onChange={handleChange}
+                  />
+                </div>
+                <div className="text-center">
+                  <button
+                    type="submit"
+                    className="btn btn-color px-5 mb-5 w-100"
+                  >
+                    Login
+                  </button>
+                </div>
+                <div
+                  id="emailHelp"
+                  className="form-text text-center mb-5 text-dark"
+                >
+                  Belum Punya Akun?
+                  <Link to="/" href="#" className="text-dark fw-bold">
+                    <span>Klik Di Sini Untuk Register</span>
+                  </Link>
+                </div>
+              </form>
+            </div>
           </div>
         </div>
       </div>

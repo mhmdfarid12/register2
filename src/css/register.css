@@ -1,6 +1,8 @@
 .btn-color{
-  background-color: #0e1c36;
+  background-color:purple;
   color: #fff;
+  border-radius: 20px;
+  width: auto;
   
 }
 
@@ -13,9 +15,27 @@
 
 
 .cardbody-color{
-  background-color: #ebf2fa;
+  background-color: rgba(0,0,0,.7);
+ 
+  width: 60%;
+  height: 1%;
+  margin: auto;
 }
 
 a{
   text-decoration: none;
+}
+
+h3 {
+ 
+color: #fff;
+font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+font-style: thick;
+}
+.backgroundImage{
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 100vh; 
+
 }
