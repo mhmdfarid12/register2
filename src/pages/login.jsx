@@ -16,6 +16,7 @@ const Login = () => {
       id: 0,
       username: "yourname",
       password: "k",
+      role: "supervisor,",
     },
   ]);
 
@@ -39,7 +40,7 @@ const Login = () => {
           showConfirmButton: false,
           timer: 1500,
         });
-        localStorage.setItem("username", formData.username);
+        localStorage.setItem("UserRole", existingAccount.role);
         console.log(storedAccounts);
         navigate("/Home");
       } else {
@@ -125,9 +126,11 @@ const Login = () => {
                   id="emailHelp"
                   className="form-text text-center mb-5 text-dark"
                 >
-                  Belum Punya Akun?
+                  <span style={{ color: "white" }}>Belum Punya Akun?</span>
                   <Link to="/" href="#" className="text-dark fw-bold">
-                    <span>Klik Di Sini Untuk Register</span>
+                    <span style={{ color: "white" }}>
+                      Klik Di Sini Untuk Register
+                    </span>
                   </Link>
                 </div>
               </form>

@@ -8,6 +8,7 @@ const Register = () => {
     username: "",
     email: "",
     password: "",
+    role: "supervisor",
   });
   const navigate = useNavigate();
   const accounts = [
@@ -16,6 +17,7 @@ const Register = () => {
       email: "youremail@gmail.com",
       username: "yourname",
       password: "yourpassword",
+      role: "supervisor",
     },
   ];
 
@@ -33,13 +35,15 @@ const Register = () => {
     if (
       formData.username !== "" &&
       formData.email !== "" &&
-      formData.password !== ""
+      formData.password !== "" &&
+      formData.role !== ""
     ) {
       const newAccount = {
         id: accounts.length,
         email: formData.email,
         username: formData.username,
         password: formData.password,
+        role: formData.role,
       };
 
       // Menambahkan akun baru ke array accounts
@@ -92,7 +96,7 @@ const Register = () => {
           <div className="col-md-6 offset-md-3">
             <div className="my-5">
               <form className=" card-body-color p-lg-5" onSubmit={handleSubmit}>
-                <div className="mb-3">
+                <div className="mb-3 tgh">
                   <h3 className="text-center">REGISTER</h3>
                   <input
                     type="text"
@@ -126,7 +130,20 @@ const Register = () => {
                     placeholder="password"
                   />
                 </div>
-
+                <div className="">
+                  <label htmlFor="role" className="form-label"></label>
+                  <select
+                    className="form-select"
+                    id="role"
+                    value={formData.role}
+                    onChange={handleChange}
+                    name="role"
+                  >
+                    <option value="supervisor">Supervisor</option>
+                    <option value="operator">Operator</option>
+                  </select>
+                </div>
+                <br />
                 <div className="text-center">
                   <button
                     type="submit"
@@ -136,14 +153,12 @@ const Register = () => {
                   </button>
                 </div>
 
-                <div
-                  id="login"
-                  className="text-center mb-5 text-dark"
-                  style={{ color: "white" }}
-                >
-                  Sudah Punya Akun?
+                <div id="login" classNaBelumme="text-center mb-5 text-dark">
+                  <span style={{ color: "white" }}>Punya Akun?</span>
                   <Link to="/login" className="text-dark fw-bold">
-                    <span>klik di sini untuk login</span>
+                    <span style={{ color: "white" }}>
+                      klik di sini untuk login
+                    </span>
                   </Link>
                 </div>
               </form>

@@ -3,7 +3,7 @@ import { Navigate, useLocation } from "react-router-dom";
 
 function PrivateRoute({ children }) {
   const location = useLocation();
-  if (!localStorage.getItem("username")) {
+  if (!localStorage.getItem("UserRole")) {
     return <Navigate to="/login" state={{ from: location }} />;
   }
   return children;
